@@ -59,7 +59,7 @@ const Dashboard = () => {
     }
     useEffect(() => {
 
-        const newsocket = io(ENDPOINT);
+        const newsocket = io("https://connectify-backend-2rxn.onrender.com");
         setSocket(newsocket);
         newsocket.emit("setup", user);
         newsocket.on('connected', () => setSocketConnected(true));
