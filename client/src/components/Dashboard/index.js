@@ -50,7 +50,7 @@ const Dashboard = () => {
             const transferData = {
                 "userId": user.id,
             }
-            const { data } = await axios.post(`${ process.env.ENDPOINT}/api/fetchchat`, transferData);
+            const { data } = await axios.post("https://connectify-backend-2rxn.onrender.com/api/fetchchat", transferData);
             setChats(data);
             // console.log("chatsssdageiwu", data);
         } catch (error) {
@@ -123,7 +123,7 @@ const Dashboard = () => {
 
         try {
             setChatLoading(true);
-            const { data, status } = await axios.get(`${ process.env.ENDPOINT}/api/message/${selectedChat._id}`);
+            const { data, status } = await axios.get(`https://connectify-backend-2rxn.onrender.com/api/message/${selectedChat._id}`);
             console.log("messaaaaaaaages", data)
             if (status === 200 && Array.isArray(data)) {
                 setMessages(data);
@@ -149,7 +149,7 @@ const Dashboard = () => {
                 "content": sendNewMessage
             }
             setSendNewMessage("");
-            const { data } = await axios.post(`${ process.env.ENDPOINT}/api/message`, sendData);
+            const { data } = await axios.post("https://connectify-backend-2rxn.onrender.com/api/message", sendData);
             console.log(data, "heyyy");
             socket.emit("new message", data);
             setMessages([...messages, data]);

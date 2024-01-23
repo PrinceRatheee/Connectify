@@ -25,7 +25,7 @@ const SignUp = () => {
         try {
             console.log("pic sent", pic);
             const data = { user, pic };
-            const res = await fetch(`${process.env.ENDPOINT}/api/register`, {
+            const res = await fetch("https://connectify-backend-2rxn.onrender.com/api/register", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ const SignUp = () => {
             data.append("file", pics);
             data.append("upload_preset", "chat-app");
             data.append("cloud_name", "piyushproj");
-            fetch(process.env.CLOUDINARY_URL, {
+            fetch("https://api.cloudinary.com/v1_1/dm1l0ti4p/image/upload", {
                 method: "post",
                 body: data,
             })

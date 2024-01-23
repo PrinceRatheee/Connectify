@@ -22,7 +22,7 @@ const SignIn = () => {
     const onSignin = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`${process.env.ENDPOINT}/api/login`, {
+            const res = await fetch("https://connectify-backend-2rxn.onrender.com/api/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

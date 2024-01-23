@@ -16,7 +16,7 @@ const Form = ({
     })
     const handleSubmit=async(e)=>{
         e.preventDefault();
-        const res=await fetch(`${process.env.ENDPOINT}/api/${isSignInPage?'login':'register'}`,{
+        const res=await fetch(`https://connectify-backend-2rxn.onrender.com/api/${isSignInPage?'login':'register'}`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
