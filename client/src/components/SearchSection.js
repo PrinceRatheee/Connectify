@@ -40,7 +40,7 @@ const SearchSection = () => {
         "senderId":user.id
 
       };
-      const {data}=await axios.post(`${process.env.ENDPOINT}/api/chat`,datatransfer);
+      const {data}=await axios.post("https://connectify-backend-2rxn.onrender.com/api/chat",datatransfer);
       if(!chats.find((c)=>c._id===data._id)) setChats([data,...chats]);
       
       setSearchLoading(false);
