@@ -443,25 +443,19 @@ app.get('/api/message/:chatId',async(req,res)=>{
 const server=app.listen(port, () => {
   console.log('Listening on port ' + port);
 });
-
 const io=require("socket.io")(server,{
   pingTimeout:60000,
   cors:{
     origin:"https://connectify-chat.vercel.app"
   }
 })
-
 io.on("connection",(socket)=>{
   console.log('connected to socket.io');
-
   socket.on("setup",(userData)=>{
-    socket.join(userData?.id);
-    // console.log(userData.id);
+    socket.join(userData?.id);    
     socket.emit("connected");
   })
-
   socket.on('join chat',(room)=>{
-    // console.log("0000sssssskkk---");
     socket.join(room);
     console.log('user joined room '+ room);
   })

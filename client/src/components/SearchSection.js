@@ -25,7 +25,7 @@ const SearchSection = () => {
     const userId = {
       "userId": user.id,
     };
-    const { data } = await axios.post(`${process.env.ENDPOINT}/api/user?search=${searchText}`, userId);
+    const { data } = await axios.post(`https://connectify-backend-2rxn.onrender.com/api/user?search=${searchText}`, userId);
  
     setSearchResult(data);
     setSearchLoading(false);
